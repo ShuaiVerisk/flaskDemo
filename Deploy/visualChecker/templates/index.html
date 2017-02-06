@@ -6,7 +6,7 @@
     <meta name="description" content="Flask Demos">
     <meta name="Shuai Wang" content=" Accept or Reject">
 
-    <title>Flask Demo for VIA</title>
+    <title>Flask Demo</title>
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 
@@ -70,27 +70,24 @@ this form is generated from: http://bootsnipp.com/forms
     <!-- Begin page content -->
     <div class="container-fluid">
     	<div class="page-header">
-    	    <h1><a href="/">Accept or Reject?</a></h1>
+    	    <h1><a href="/">How is the weather?</a></h1>
     	    <p> </p>
     	</div>
 	</div>
 
 
     <div class="container">
-		<div class="row">
-
-
-      <form id="formupload" class="form-horizontal" role="form" action="run_model" method="post" enctype="multipart/form-data">
-		<fieldset>
-
-		<!-- Form Name -->
-		<legend>Titles</legend>
-
-		<!-- Button -->
-
-		</fieldset>
-		</form>
-		</div>
+    <div class="row">
+        <form id="formupload" class="form form-inline bottom-margin" role="form" action="run_model" method="post"
+              enctype="multipart/form-data">
+            <div class="form-group left-margin">
+                <label for="link_input">Type in the text</label>
+                <input type="text" class="form-control" id="link_input" name="link_input" placeholder="Enter URL here"
+                       style="width:650px;" required="">
+            </div>
+            <button type="submit" class="btn btn-primary left-margin" id="submit_button" value="Submit">&nbsp;Submit&nbsp;</button>
+        </form>
+    </div>
 
 
   {% if has_result %}
@@ -103,13 +100,14 @@ this form is generated from: http://bootsnipp.com/forms
         <div class="panel panel-default">
             <div class="panel-body">
 	<br>
-	<h2>Query</h2>
+	<h2>Input Text</h2>
 	<h3> {{result[2]}}</h3>
-
+	<h2>Output Text</h2>
+	<h3> {{result[3]}}</h3>
 				    <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-body">
-				<img src="{{ url_for('static', filename=result[8]) }}" width="100%"></img>
+				<img src="{{ url_for('static', filename=result[4]) }}" width="100%"></img>
 								            </div>
         </div>
     </div>
