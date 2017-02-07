@@ -13,7 +13,7 @@ sys.setdefaultencoding('utf8')
 #########################################
 # Obtain the flask app object
 app = flask.Flask(__name__)
-client = pyowm.OWM(API_key='fee38c2f32c93edd904c87c3f2abbb2c')
+
 @app.route('/')
 def index():
     # Starting point
@@ -21,6 +21,7 @@ def index():
 
 @app.route('/run_model', methods=['POST'])
 def run_model():
+    # Here you get what the client types in in the form
     text_input = flask.request.form['link_input']
 
     ### Place your function here
