@@ -12,27 +12,6 @@
 
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-    <!-- Script to instantly classify an image once it is uploaded. -->
-<!--    <script type="text/javascript">
-      $(document).ready(
-        function(){
-          $('#classifyfile').attr('disabled',true);
-
-          $('#imagefile').change(
-            function(){
-              if ($(this).val()){
-                $('#formupload').submit();
-              }
-            }
-          );
-        }
-      );
-    </script>
--->
-<!--
-this form is generated from: http://bootsnipp.com/forms
--->
     <style>
     body {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -69,10 +48,10 @@ this form is generated from: http://bootsnipp.com/forms
 </div>
     <!-- Begin page content -->
     <div class="container-fluid">
-    	<div class="page-header">
+    	<!--div class="page-header">
     	    <h1><a href="/">How is the Weather?</a></h1>
     	    <p> </p>
-    	</div>
+    	</div-->
 	</div>
 
 
@@ -81,9 +60,9 @@ this form is generated from: http://bootsnipp.com/forms
         <form id="formupload" class="form form-inline bottom-margin" role="form" action="run_model" method="post"
               enctype="multipart/form-data">
             <div class="form-group left-margin">
-                <label for="client_input">Type in the location</label>
+                <!--label for="client_input">Type in the location</label>
                 <input type="text" class="form-control" id="client_input" name="client_input"
-                       style="width:650px;" required="">
+                       style="width:650px;" required=""-->
             </div>
             <button type="submit" class="btn btn-primary left-margin" id="submit_button" value="submit">&nbsp;I am feeling good!&nbsp;</button>
         </form>
