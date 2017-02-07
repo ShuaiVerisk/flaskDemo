@@ -1,5 +1,2 @@
-PyDictionary
-dill
-gensim
-pyemd
-nltk
+flask
+tornado
