@@ -6,13 +6,14 @@ import tornado.httpserver
 
 import sys
 
-import yweather
+import pyowm
+
 reload(sys)
 sys.setdefaultencoding('utf8')
 #########################################
 # Obtain the flask app object
 app = flask.Flask(__name__)
-client = yweather.Client()
+client = pyowm.OWM(API_key='fee38c2f32c93edd904c87c3f2abbb2c')
 @app.route('/')
 def index():
     # Starting point
@@ -21,12 +22,9 @@ def index():
 @app.route('/run_model', methods=['POST'])
 def run_model():
     text_input = flask.request.form['link_input']
-    if "San Francisco" in text_input:
-        imgFile = "rainy.png"
-    else:
-        imgFile = "sunny.jpeg"
+
     ### Place your function here
-    output = changeText(text_input)
+    imgFile, output = getWeather(text_input)
     return flask.render_template('index.html', has_result=True,
             result=(True, text_input,
                     text_input,
@@ -40,8 +38,15 @@ def start_tornado(app, port=""):
     print("Tornado server starting on port {}".format(port))
     tornado.ioloop.IOLoop.instance().start()
 
-def changeText(input):
-    id = client.fetch_woeid(input)
+def getWeather(input):
+    if "San Francisco".lower() in input.lower() or "London".lower() in input.lower():
+        imgFile = "rainy.png"
+        prediction = "There will be some rain later in the day"
+    else:
+        imgFile = "sunny.jpeg"
+        prediction = "Open your Weather APP on the smartphone. It is way better."
+    return imgFile, prediction
+
 
 
 
